@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Book Details</title>
+
+</head>
+
+<body>
+
+    <h1>Book Details</h1>
+
+    <p>
+        <strong>ISBN:</strong>
+        {{ book["isbn"] }}
+    </p>
+
+    <p>
+        <strong>Book Title:</strong>
+        {{ book["title"] }}
+    </p>
+
+    <p>
+        <strong>Author:</strong>
+        {{ book["author"] }}
+    </p>
+
+    <p>
+        <strong>Subject:</strong>
+        {{ book["subject"] }}
+    </p>
+
+    <p>
+        <strong>Category:</strong>
+        {{ book["category"] }}
+    </p>
+
+    <p>
+        <strong>Quantity:</strong>
+        {{ book["quantity"] }}
+    </p>
+
+    <br>
+
+    <a href="/books">
+        BACK TO BOOKS
+    </a>
+
+</body>
+
+</html>

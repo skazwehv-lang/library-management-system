@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block title %}
+Borrowing History
+{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+
+    <div>
+        <h1>📋 Borrowing History</h1>
+        <p>View all book borrowing and return records</p>
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <table>
+
+        <thead>
+
+            <tr>
+                <th>ID</th>
+                <th>Student</th>
+                <th>Admission No.</th>
+                <th>Book</th>
+                <th>Borrow Date</th>
+                <th>Return Date</th>
+                <th>Status</th>
+            </tr>
+
+        </thead>
+
+
+        <tbody>
+
+            {% for borrowing in borrowings %}
+
+            <tr>
+
+                <td>
+                    {{ borrowing["id"] }}
+                </td>
+
+                <td>
+                    {{ borrowing["full_name"] }}
+                </td>
+
+                <td>
+                    {{ borrowing["admission_number"] }}
+                </td>
+
+                <td>
+                    <strong>
+                        {{ borrowing["title"] }}
+                    </strong>
+                </td>
+
+                <td>
+                    {{ borrowing["borrow_date"] }}
+                </td>
+
+                <td>
+                    {{ borrowing["return_date"] or "-" }}
+                </td>
+
+                <td>
+                    {{ borrowing["status"] }}
+                </td>
+
+            </tr>
+
+            {% else %}
+
+            <tr>
+
+                <td colspan="7">
+                    No borrowing history found.
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+{% endblock %}

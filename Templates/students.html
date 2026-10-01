@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+
+{% block title %}
+Students
+{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+
+    <div>
+        <h1>👨‍🎓 Students</h1>
+        <p>Manage all registered students</p>
+    </div>
+
+    <a href="/add-student">
+        <button class="btn-primary">
+            + ADD STUDENT
+        </button>
+    </a>
+
+</div>
+
+
+<div class="card">
+
+    <form method="GET" action="/students">
+
+        <input
+            type="text"
+            name="q"
+            value="{{ request.args.get('q', '') }}"
+            placeholder="Search by admission number, name or class"
+        >
+
+        <button type="submit" class="btn-primary">
+            🔎 SEARCH
+        </button>
+
+    </form>
+
+</div>
+
+
+<br>
+
+
+<div class="card">
+
+    <table>
+
+        <thead>
+
+            <tr>
+                <th>ID</th>
+                <th>Admission No.</th>
+                <th>Full Name</th>
+                <th>Gender</th>
+                <th>Class</th>
+                <th>Stream</th>
+                <th>Phone</th>
+                <th>Actions</th>
+            </tr>
+
+        </thead>
+
+
+        <tbody>
+
+            {% for student in students %}
+
+            <tr>
+
+                <td>
+                    {{ student["id"] }}
+                </td>
+
+                <td>
+                    <strong>
+                        {{ student["admission_number"] }}
+                    </strong>
+                </td>
+
+                <td>
+                    {{ student["full_name"] }}
+                </td>
+
+                <td>
+                    {{ student["gender"] }}
+                </td>
+
+                <td>
+                    {{ student["class_name"] }}
+                </td>
+
+                <td>
+                    {{ student["stream"] }}
+                </td>
+
+                <td>
+                    {{ student["phone"] }}
+                </td>
+
+                <td>
+
+                    <a href="/view-student/{{ student['id'] }}">
+                        <button class="btn-view">
+                            VIEW
+                        </button>
+                    </a>
+
+                    <a href="/edit-student/{{ student['id'] }}">
+                        <button class="btn-edit">
+                            EDIT
+                        </button>
+                    </a>
+
+                    <a href="/delete-student/{{ student['id'] }}"
+                       onclick="return confirm('Are you sure you want to delete this student?')">
+
+                        <button class="btn-delete">
+                            DELETE
+                        </button>
+
+                    </a>
+
+                </td>
+
+            </tr>
+
+            {% else %}
+
+            <tr>
+
+                <td colspan="8">
+                    No students found.
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+{% endblock %}

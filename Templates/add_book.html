@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Add Book</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="page-header">
+
+        <div>
+            <h1>📚 Add New Book</h1>
+            <p>Enter the details of the book</p>
+        </div>
+
+        <a href="/books">
+            <button class="btn-primary">
+                ← BACK TO BOOKS
+            </button>
+        </a>
+
+    </div>
+
+
+    <div class="card">
+
+        <form method="POST">
+
+            <label>ISBN</label>
+
+            <input
+                type="text"
+                name="isbn"
+                placeholder="Enter ISBN"
+            >
+
+
+            <label>Book Title</label>
+
+            <input
+                type="text"
+                name="title"
+                placeholder="Enter book title"
+                required
+            >
+
+
+            <label>Author</label>
+
+            <input
+                type="text"
+                name="author"
+                placeholder="Enter author name"
+            >
+
+
+            <label>Subject</label>
+
+            <input
+                type="text"
+                name="subject"
+                placeholder="Example: Mathematics"
+            >
+
+
+            <label>Category</label>
+
+            <input
+                type="text"
+                name="category"
+                placeholder="Example: Textbook"
+            >
+
+
+            <label>Quantity</label>
+
+            <input
+                type="number"
+                name="quantity"
+                min="1"
+                value="1"
+                required
+            >
+
+
+            <br>
+
+            <button type="submit" class="btn-primary">
+                💾 SAVE BOOK
+            </button>
+
+            <a href="/books">
+                <button type="button">
+                    CANCEL
+                </button>
+            </a>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

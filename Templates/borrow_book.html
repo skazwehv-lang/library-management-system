@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block title %}
+Borrow Book
+{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+
+    <div>
+        <h1>📖 Borrow / Issue Book</h1>
+        <p>Issue a book to a student</p>
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <form method="POST">
+
+        <label>Student</label>
+
+        <select name="student_id" required>
+
+            <option value="">
+                -- Select Student --
+            </option>
+
+            {% for student in students %}
+
+            <option value="{{ student['id'] }}">
+                {{ student['admission_number'] }} -
+                {{ student['full_name'] }}
+            </option>
+
+            {% endfor %}
+
+        </select>
+
+
+        <label>Book</label>
+
+        <select name="book_id" required>
+
+            <option value="">
+                -- Select Book --
+            </option>
+
+            {% for book in books %}
+
+            <option value="{{ book['id'] }}">
+                {{ book['title'] }} -
+                {{ book['author'] }}
+            </option>
+
+            {% endfor %}
+
+        </select>
+
+
+        <label>Borrow Date</label>
+
+        <input
+            type="date"
+            name="borrow_date"
+            required
+        >
+
+
+        <br>
+
+        <button type="submit" class="btn-primary">
+            📚 ISSUE BOOK
+        </button>
+
+        <a href="/books">
+            <button type="button">
+                CANCEL
+            </button>
+        </a>
+
+    </form>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,7 @@
+library.db
+*.db
+backups/
+dist/
+build/
+__pycache__/
+*.pyc

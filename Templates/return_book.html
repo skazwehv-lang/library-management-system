@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block title %}
+Return Book
+{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+
+    <div>
+        <h1>↩️ Return Book</h1>
+        <p>Manage books currently borrowed by students</p>
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <table>
+
+        <thead>
+
+            <tr>
+                <th>ID</th>
+                <th>Student</th>
+                <th>Admission No.</th>
+                <th>Book</th>
+                <th>Borrow Date</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+
+        </thead>
+
+
+        <tbody>
+
+            {% for borrowing in borrowings %}
+
+            <tr>
+
+                <td>
+                    {{ borrowing["id"] }}
+                </td>
+
+                <td>
+                    {{ borrowing["full_name"] }}
+                </td>
+
+                <td>
+                    {{ borrowing["admission_number"] }}
+                </td>
+
+                <td>
+                    <strong>
+                        {{ borrowing["title"] }}
+                    </strong>
+                </td>
+
+                <td>
+                    {{ borrowing["borrow_date"] }}
+                </td>
+
+                <td>
+                    {{ borrowing["status"] }}
+                </td>
+
+                <td>
+
+                    <a href="/return-book/{{ borrowing['id'] }}">
+
+                        <button class="btn-view">
+                            RETURN
+                        </button>
+
+                    </a>
+
+                </td>
+
+            </tr>
+
+            {% else %}
+
+            <tr>
+
+                <td colspan="7">
+                    No borrowed books found.
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+{% endblock %}

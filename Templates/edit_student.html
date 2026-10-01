@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Edit Student</title>
+</head>
+
+<body>
+
+    <h1>Edit Student</h1>
+
+    <form method="POST">
+
+        <label>Admission Number:</label><br>
+
+        <input
+            type="text"
+            name="admission_number"
+            value="{{ student['admission_number'] }}"
+            required
+        >
+
+        <br><br>
+
+
+        <label>Full Name:</label><br>
+
+        <input
+            type="text"
+            name="full_name"
+            value="{{ student['full_name'] }}"
+            required
+        >
+
+        <br><br>
+
+
+        <label>Gender:</label><br>
+
+        <select name="gender">
+
+            <option
+                value="Male"
+                {% if student['gender'] == 'Male' %}selected{% endif %}
+            >
+                Male
+            </option>
+
+            <option
+                value="Female"
+                {% if student['gender'] == 'Female' %}selected{% endif %}
+            >
+                Female
+            </option>
+
+        </select>
+
+        <br><br>
+
+
+        <label>Class:</label><br>
+
+        <input
+            type="text"
+            name="class_name"
+            value="{{ student['class_name'] }}"
+        >
+
+        <br><br>
+
+
+        <label>Stream:</label><br>
+
+        <input
+            type="text"
+            name="stream"
+            value="{{ student['stream'] }}"
+        >
+
+        <br><br>
+
+
+        <label>Phone:</label><br>
+
+        <input
+            type="text"
+            name="phone"
+            value="{{ student['phone'] }}"
+        >
+
+        <br><br>
+
+
+        <button type="submit">
+            UPDATE STUDENT
+        </button>
+
+    </form>
+
+    <br>
+
+    <a href="/students">
+        CANCEL
+    </a>
+
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Library Login</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card" style="max-width: 450px; margin: 80px auto;">
+
+        <div style="text-align: center;">
+
+            <h1>📚 Library System</h1>
+
+            <p>
+                Login to continue
+            </p>
+
+        </div>
+
+
+        <form method="POST">
+
+            <label>Username</label>
+
+            <input
+                type="text"
+                name="username"
+                placeholder="Enter username"
+                required
+            >
+
+
+            <label>Password</label>
+
+            <input
+                type="password"
+                name="password"
+                placeholder="Enter password"
+                required
+            >
+
+
+            <br>
+
+            <button
+                type="submit"
+                class="btn-primary"
+                style="width: 100%;"
+            >
+                🔐 LOGIN
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
